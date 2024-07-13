@@ -18,7 +18,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="Cpf">CPF:</label>
-                <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" placeholder="Ex.: 010.011.111-00" maxlength="11">
+                <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" oninput="maskCpf(this)" placeholder="Ex.: 010.011.111-00" maxlength="11">
             </div>
         </div>
         <div class="col-md-6">
@@ -86,73 +86,70 @@
         </div>
         <div class="col-lg-12">
             <div class="pull-left">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
                     Beneficiários
                 </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Beneficiários</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row ">
-                                    <div class="col-md-4">
-                                        <div class="form-group ">
-                                            <label for="Cpf">CPF:</label>
-                                            <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" placeholder="Ex.: 010.011.111-00" maxlength="11">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 padding-left-modal">
-                                        <div class="form-group ">
-                                            <label for="Nome">Nome:</label>
-                                            <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: Maria" maxlength="50">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 padding-left-modal">
-                                        <div class="form-group">
-                                            <label>&nbsp;</label>
-                                            <button type="button" class="btn btn-success form-control">Incluir</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <table class="table">
-                                    <tr>
-                                        <th scope="col">CPF</th>
-                                        <th scope="col">Nome</th>
-                                        <th scope="col">Ações</th>
-                                        <td></td>
-                                    </tr>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">270.885.360-05</th>
-                                            <td>Teste de Oliveira</td>
-                                            <td>
-                                                <div>
-                                                    <button type="button" class="btn btn-primary">Excluir</button>
-                                                    <button type="button" class="btn btn-primary">Alterar</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">415.161.480-02</th>
-                                            <td>Teste de Teste</td>
-                                            <td>
-                                                <div>
-                                                    <button type="button" class="btn btn-primary">Excluir</button>
-                                                    <button type="button" class="btn btn-primary">Alterar</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+            </div>
 
-                            </div>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content ">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                Beneficiários
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span class="mb-3" aria-hidden="true">&times;</span>
+                                </button>
+                            </h5>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th scope="col">CPF:</th>
+                                        <th scope="col">Nome:</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-2 remove-padding-left">
+                                            <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" oninput="maskCpf(this)" placeholder="Ex.: 010.011.111-00" maxlength="11">
+                                        </td>
+                                        <td class="col-md-3 remove-padding-left">
+                                            <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: Maria" maxlength="50">
+                                        </td>
+                                        <td class="col-md-2 remove-padding-left">
+                                            <button type="button" class="btn btn-success form-control">Incluir</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table">
+                                <tr>
+                                    <th scope="col">CPF</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Ações</th>
+                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">270.885.360-05</th>
+                                        <td>Beneficiário João</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Excluir</button>
+                                            <button type="button" class="btn btn-primary">Alterar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">415.161.480-02</th>
+                                        <td>Beneficiário José</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary">Excluir</button>
+                                            <button type="button" class="btn btn-primary">Alterar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -161,7 +158,32 @@
     </div>
 </form>
 <style>
-    .padding-left-modal {
+    .remove-padding-left {
         padding-left: 0 !important;
     }
+
+    .margin-modal {
+        margin: 40px 0 40px 0 !important;
+    }
+
+    .table {
+        margin: 40px 0 40px 0;
+    }
 </style>
+<script>
+    function maskCpf(i) {
+
+        var v = i.value;
+
+        if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
+            i.value = v.substring(0, v.length - 1);
+            return;
+        }
+
+        i.setAttribute("maxlength", "14");
+        if (v.length == 3 || v.length == 7) i.value += ".";
+        if (v.length == 11) i.value += "-";
+
+
+    }
+</script>
