@@ -18,7 +18,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="Cpf">CPF:</label>
-                <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" placeholder="Ex.: 010.011.111-00" maxlength="50">
+                <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" placeholder="Ex.: 010.011.111-00" maxlength="11">
             </div>
         </div>
         <div class="col-md-6">
@@ -99,35 +99,69 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
+                                <div class="row ">
+                                    <div class="col-md-4">
+                                        <div class="form-group ">
                                             <label for="Cpf">CPF:</label>
-                                            <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" placeholder="Ex.: 010.011.111-00" maxlength="50">
+                                            <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" placeholder="Ex.: 010.011.111-00" maxlength="11">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
+                                    <div class="col-md-5 padding-left-modal">
+                                        <div class="form-group ">
                                             <label for="Nome">Nome:</label>
-                                            <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" maxlength="50">
+                                            <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: Maria" maxlength="50">
                                         </div>
                                     </div>
-                                    <div class="col-md-3 d-flex align-items-end">
-                                        <div class="form-group w-100">
-                                            <button type="button" class="btn btn-success w-100">Incluir</button>
+                                    <div class="col-md-2 padding-left-modal">
+                                        <div class="form-group">
+                                            <label>&nbsp;</label>
+                                            <button type="button" class="btn btn-success form-control">Incluir</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Excluir</button>
-                                    <button type="button" class="btn btn-primary">Alterar</button>
-                                </div>
+                                <table class="table">
+                                    <tr>
+                                        <th scope="col">CPF</th>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Ações</th>
+                                        <td></td>
+                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">270.885.360-05</th>
+                                            <td>Teste de Oliveira</td>
+                                            <td>
+                                                <div>
+                                                    <button type="button" class="btn btn-primary">Excluir</button>
+                                                    <button type="button" class="btn btn-primary">Alterar</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">415.161.480-02</th>
+                                            <td>Teste de Teste</td>
+                                            <td>
+                                                <div>
+                                                    <button type="button" class="btn btn-primary">Excluir</button>
+                                                    <button type="button" class="btn btn-primary">Alterar</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
+    </div>
 </form>
+<style>
+    .padding-left-modal {
+        padding-left: 0 !important;
+    }
+</style>
