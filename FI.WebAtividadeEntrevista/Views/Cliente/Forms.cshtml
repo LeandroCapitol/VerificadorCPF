@@ -84,79 +84,79 @@
                 @Html.ActionLink("Voltar", "Index", "Cliente", new { }, new { @class = "btn btn-sm btn-danger" })
             </div>
         </div>
-        <div class="col-lg-12">
-            <div class="pull-left">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
-                    Beneficiários
-                </button>
-            </div>
+    </div>
+</form>
+<div class="col-lg-12">
+    <div class="pull-left">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+            Beneficiários
+        </button>
+    </div>
 
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content ">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                                Beneficiários
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span class="mb-3" aria-hidden="true">&times;</span>
-                                </button>
-                            </h5>
-                        </div>
-                        <div class="modal-body">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th scope="col">CPF:</th>
-                                        <th scope="col">Nome:</th>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2 remove-padding-left">
-                                            <input required="required" type="text" class="form-control" id="Cpf" name="Cpf" oninput="maskCpf(this)" placeholder="Ex.: 010.011.111-00" maxlength="11">
-                                        </td>
-                                        <td class="col-md-3 remove-padding-left">
-                                            <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: Maria" maxlength="50">
-                                        </td>
-                                        <td class="col-md-2 remove-padding-left">
-                                            <button type="button" class="btn btn-success form-control">Incluir</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Beneficiários
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="mb-3" aria-hidden="true">&times;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th scope="col">CPF:</th>
+                                <th scope="col">Nome:</th>
+                            </tr>
+                            <tr>
+                                <td class="col-md-2 remove-padding-left">
+                                    <input required="required" type="text" class="form-control" id="CpfBeneficiario" name="CpfBeneficiario" oninput="maskCpf(this)" placeholder="Ex.: 010.011.111-00" maxlength="11">
+                                </td>
+                                <td class="col-md-3 remove-padding-left">
+                                    <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: Maria" maxlength="50">
+                                </td>
+                                <td class="col-md-2 remove-padding-left">
+                                    <button type="button" class="btn btn-success form-control">Incluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                            <table class="table">
-                                <tr>
-                                    <th scope="col">CPF</th>
-                                    <th scope="col">Nome</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">270.885.360-05</th>
-                                        <td>Beneficiário João</td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary">Excluir</button>
-                                            <button type="button" class="btn btn-primary">Alterar</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">415.161.480-02</th>
-                                        <td>Beneficiário José</td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary">Excluir</button>
-                                            <button type="button" class="btn btn-primary">Alterar</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <table class="table">
+                        <tr>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <th scope="row">270.885.360-05</th>
+                                <td>Beneficiário João</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary">Excluir</button>
+                                    <button type="button" class="btn btn-primary">Alterar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">415.161.480-02</th>
+                                <td>Beneficiário José</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary">Excluir</button>
+                                    <button type="button" class="btn btn-primary">Alterar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</form>
+</div>
 <style>
     .remove-padding-left {
         padding-left: 0 !important;

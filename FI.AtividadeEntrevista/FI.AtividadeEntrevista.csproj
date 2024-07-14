@@ -54,21 +54,6 @@
     <Content Include="DAL\Clientes\Procedures\FI_SP_DelCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_IncCliente.sql" />
     <Content Include="DAL\Clientes\Procedures\FI_SP_PesqCliente.sql" />
-    <Content Include="Scripts\jquery-3.7.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.7.1.js" />
-    <Content Include="Scripts\jquery-3.7.1.min.js" />
-    <Content Include="Scripts\jquery-3.7.1.slim.js" />
-    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Scripts\jquery-3.7.1.min.map" />
-    <None Include="Scripts\jquery-3.7.1.slim.min.map" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
