@@ -66,9 +66,9 @@ namespace WebAtividadeEntrevista.Models
         /// Telefone
         /// </summary>
         public string Telefone { get; set; }
-
+        
         /// <summary>
-        /// CPF
+        /// Cpf
         /// </summary>
         public string Cpf { get; set; }
 

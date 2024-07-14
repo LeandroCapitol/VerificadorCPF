@@ -10,7 +10,7 @@ $(document).ready(function () {
         $('#formCadastro #Cidade').val(obj.Cidade);
         $('#formCadastro #Logradouro').val(obj.Logradouro);
         $('#formCadastro #Telefone').val(obj.Telefone);
-        $('#formCadastro #Cpf').val(obj.Cpf);
+        $('#Cpf #Cpf').val(obj.Cpf);
     }
 
     $('#formCadastro').submit(function (e) {

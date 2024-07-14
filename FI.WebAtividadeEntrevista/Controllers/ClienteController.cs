@@ -50,7 +50,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Nome = model.Nome,
                     Sobrenome = model.Sobrenome,
                     Telefone = model.Telefone,
-                    Cpf = model.Cpf,
+                    Cpf = model.Cpf
                 });
 
            
@@ -86,7 +86,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Nome = model.Nome,
                     Sobrenome = model.Sobrenome,
                     Telefone = model.Telefone,
-                    Cpf = model.Cpf
+                    Cpf = model.Cpf,
                 });
                                
                 return Json("Cadastro alterado com sucesso");
