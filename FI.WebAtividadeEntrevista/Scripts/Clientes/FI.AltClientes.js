@@ -46,6 +46,37 @@ $(document).ready(function () {
             }
         });
     })
+
+    if (obj) {
+        $('#formBeneficiario #Cpf').val(obj.Cpf);
+        $('#formBeneficiario #Nome').val(obj.Nome);
+    }
+
+    $('#formBeneficiario').submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: urlPost,
+            method: "POST",
+            data: {
+                "Cpf": $(this).find("#Cpf").val(),
+                "Nome": $(this).find("#Nome").val(),
+            },
+            error:
+                function (r) {
+                    if (r.status == 400)
+                        ModalDialog("Ocorreu um erro", r.responseJSON);
+                    else if (r.status == 500)
+                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
+                },
+            success:
+                function (r) {
+                    ModalDialog("Sucesso!", r)
+                    $("#formBeneficiario")[0].reset();
+                    window.location.href = urlRetorno;
+                }
+        });
+    })
     
 })
 
