@@ -40,6 +40,26 @@ namespace FI.AtividadeEntrevista.DAL
         }
 
         /// <summary>
+        /// Inclui um novo beneficiario
+        /// </summary>
+        /// <param name="beneficiario">Objeto de beneficiario</param>
+        internal long AlterarBeneficiario(DML.Beneficiario beneficiario)
+        {
+
+            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
+
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Nome", beneficiario.Nome));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Cpf", beneficiario.Cpf));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@IdClientes", beneficiario.Cliente.Id));
+
+            DataSet ds = base.Consultar("FI_SP_AltBenef", parametros);
+            long ret = 0;
+            if (ds.Tables[0].Rows.Count > 0)
+                long.TryParse(ds.Tables[0].Rows[0][0].ToString(), out ret);
+            return ret;
+        }
+
+        /// <summary>
         /// Inclui um novo cliente
         /// </summary>
         /// <param name="cliente">Objeto de cliente</param>

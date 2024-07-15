@@ -58,7 +58,8 @@ namespace WebAtividadeEntrevista.Controllers
                     Nome = model.Nome,
                     Sobrenome = model.Sobrenome,
                     Telefone = model.Telefone,
-                    Cpf = model.Cpf
+                    Cpf = model.Cpf,
+                    Beneficiarios = model.Beneficiarios
                 });
 
            

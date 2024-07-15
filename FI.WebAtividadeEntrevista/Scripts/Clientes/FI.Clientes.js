@@ -15,7 +15,9 @@ $(document).ready(function () {
                 "Cidade": $(this).find("#Cidade").val(),
                 "Logradouro": $(this).find("#Logradouro").val(),
                 "Telefone": $(this).find("#Telefone").val(),
-                "Cpf": $(this).find("#Cpf").val()
+                "Cpf": $(this).find("#Cpf").val(),
+                "CpfBeneficiario": $(this).find("#CpfBeneficiario").val(),
+                "NomeBeneficiario": $(this).find("#NomeBeneficiario").val(),
             },
             error:
                 function (r) {
@@ -28,28 +30,6 @@ $(document).ready(function () {
                 function (r) {
                     ModalDialog("Sucesso!", r)
                     $("#formCadastro")[0].reset();
-                }
-        });
-    })
-
-})
-
-$(document).ready(function () {
-    $('#formBeneficiario').submit(function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: urlPost,
-            method: "POST",
-            data: {
-                "Cpf": $(this).find("#Cpf").val(),
-                "NOME": $(this).find("#Nome").val()
-            },
-            error:
-                function (r) {
-                    if (r.status == 400)
-                        ModalDialog("Ocorreu um erro", r.responseJSON);
-                    else if (r.status == 500)
-                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
                 }
         });
     })

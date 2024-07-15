@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FI.AtividadeEntrevista.DML;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -74,6 +75,7 @@ namespace WebAtividadeEntrevista.Models
         [RegularExpression(@"^[0-9.\-]*$", ErrorMessage = "Digite um CPF válido")]
         [StringLength(14, MinimumLength = 11, ErrorMessage = "O CPF deve ter exatamente 11 caracteres")]
         public string Cpf { get; set; }
+        public ICollection<Beneficiario> Beneficiarios { get; set; }
 
     }    
 }

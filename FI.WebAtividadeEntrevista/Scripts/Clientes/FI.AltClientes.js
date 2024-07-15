@@ -11,6 +11,8 @@ $(document).ready(function () {
         $('#formCadastro #Logradouro').val(obj.Logradouro);
         $('#formCadastro #Telefone').val(obj.Telefone);
         $('#formCadastro #Cpf').val(obj.Cpf);
+        $('#formCadastro #CpfBeneficiario').val(obj.CpfBeneficiario);
+        $('#formCadastro #NomeBeneficiario').val(obj.NomeBeneficiario);
     }
 
     $('#formCadastro').submit(function (e) {
@@ -29,7 +31,9 @@ $(document).ready(function () {
                 "Cidade": $(this).find("#Cidade").val(),
                 "Logradouro": $(this).find("#Logradouro").val(),
                 "Telefone": $(this).find("#Telefone").val(),
-                "Cpf": $(this).find("#Cpf").val()
+                "Cpf": $(this).find("#Cpf").val(),
+                "CpfBeneficiario": $(this).find("#CpfBeneficiario").val(),
+                "NomeBeneficiario": $(this).find("#NomeBeneficiario").val(),
             },
             error:
             function (r) {
@@ -47,37 +51,6 @@ $(document).ready(function () {
         });
     })
 
-    if (obj) {
-        $('#formBeneficiario #Cpf').val(obj.Cpf);
-        $('#formBeneficiario #Nome').val(obj.Nome);
-    }
-
-    $('#formBeneficiario').submit(function (e) {
-        e.preventDefault();
-
-        $.ajax({
-            url: urlPost,
-            method: "POST",
-            data: {
-                "Cpf": $(this).find("#Cpf").val(),
-                "Nome": $(this).find("#Nome").val(),
-            },
-            error:
-                function (r) {
-                    if (r.status == 400)
-                        ModalDialog("Ocorreu um erro", r.responseJSON);
-                    else if (r.status == 500)
-                        ModalDialog("Ocorreu um erro", "Ocorreu um erro interno no servidor.");
-                },
-            success:
-                function (r) {
-                    ModalDialog("Sucesso!", r)
-                    $("#formBeneficiario")[0].reset();
-                    window.location.href = urlRetorno;
-                }
-        });
-    })
-    
 })
 
 function ModalDialog(titulo, texto) {

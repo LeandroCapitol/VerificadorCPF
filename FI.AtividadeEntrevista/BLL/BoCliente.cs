@@ -30,6 +30,16 @@ namespace FI.AtividadeEntrevista.BLL
         }
 
         /// <summary>
+        /// Altera um beneficiario
+        /// </summary>
+        /// <param name="beneficiario">Objeto de beneficiario</param>
+        public void AlterarBeneficiario(DML.Beneficiario beneficiario)
+        {
+            DAL.DaoCliente cli = new DAL.DaoCliente();
+            cli.AlterarBeneficiario(beneficiario);
+        }
+
+        /// <summary>
         /// Consulta o cliente pelo id
         /// </summary>
         /// <param name="id">id do cliente</param>
