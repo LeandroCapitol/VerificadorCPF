@@ -19,24 +19,41 @@ namespace FI.AtividadeEntrevista.DAL
         {
             cliente.Cpf = cliente.Cpf.Replace("-", "").Replace(".", "");
 
-            List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
+            List<System.Data.SqlClient.SqlParameter> parametrosCliente = new List<System.Data.SqlClient.SqlParameter>
+            {
+                new System.Data.SqlClient.SqlParameter("@Nome", cliente.Nome),
+                new System.Data.SqlClient.SqlParameter("@Sobrenome", cliente.Sobrenome),
+                new System.Data.SqlClient.SqlParameter("@Nacionalidade", cliente.Nacionalidade),
+                new System.Data.SqlClient.SqlParameter("@CEP", cliente.CEP),
+                new System.Data.SqlClient.SqlParameter("@Estado", cliente.Estado),
+                new System.Data.SqlClient.SqlParameter("@Cidade", cliente.Cidade),
+                new System.Data.SqlClient.SqlParameter("@Logradouro", cliente.Logradouro),
+                new System.Data.SqlClient.SqlParameter("@Email", cliente.Email),
+                new System.Data.SqlClient.SqlParameter("@Telefone", cliente.Telefone),
+                new System.Data.SqlClient.SqlParameter("@Cpf", cliente.Cpf)
+            };
 
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Nome", cliente.Nome));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Sobrenome", cliente.Sobrenome));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Nacionalidade", cliente.Nacionalidade));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@CEP", cliente.CEP));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Estado", cliente.Estado));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Cidade", cliente.Cidade));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Logradouro", cliente.Logradouro));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Email", cliente.Email));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Telefone", cliente.Telefone));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("@Cpf", cliente.Cpf));
-
-            DataSet ds = base.Consultar("FI_SP_IncClienteV2", parametros);
-            long ret = 0;
+            DataSet ds = base.Consultar("FI_SP_IncClienteV2", parametrosCliente);
+            long clienteId = 0;
             if (ds.Tables[0].Rows.Count > 0)
-                long.TryParse(ds.Tables[0].Rows[0][0].ToString(), out ret);
-            return ret;
+                long.TryParse(ds.Tables[0].Rows[0][0].ToString(), out clienteId);
+
+            if (clienteId > 0 && cliente.Beneficiarios != null)
+            {
+                foreach (var beneficiario in cliente.Beneficiarios)
+                {
+                    List<System.Data.SqlClient.SqlParameter> parametrosBeneficiario = new List<System.Data.SqlClient.SqlParameter>
+                    {
+                        new System.Data.SqlClient.SqlParameter("@CpfBeneficiario", beneficiario.Cpf.Replace("-", "").Replace(".", "")),
+                        new System.Data.SqlClient.SqlParameter("@NomeBeneficiario", beneficiario.Nome),
+                        new System.Data.SqlClient.SqlParameter("@IdCliente", cliente.Id)
+                    };
+
+                    base.Consultar("FI_SP_AltBenef", parametrosBeneficiario);
+                }
+            }
+
+            return clienteId;
         }
 
         /// <summary>

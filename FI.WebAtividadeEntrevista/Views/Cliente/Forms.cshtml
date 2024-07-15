@@ -91,54 +91,55 @@
             </div>
         </div>
     </div>
-    <div >
-        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content ">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            Beneficiários
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span class="mb-3" aria-hidden="true">&times;</span>
-                            </button>
-                        </h5>
-                    </div>
-                    <div class="modal-body">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th scope="col">CPF:</th>
-                                    <th scope="col">Nome:</th>
-                                    <th scope="col"></th>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-2 remove-padding-left">
-                                        <input type="text" class="form-control" id="CpfBeneficiario" name="CpfBeneficiario" oninput="maskCpf(this)" placeholder="Ex.: 010.011.111-00" maxlength="11">
-                                    </td>
-                                    <td class="col-md-3 remove-padding-left">
-                                        <input type="text" class="form-control" id="NomeBeneficiario" name="NomeBeneficiario" placeholder="Ex.: Maria" maxlength="50">
-                                    </td>
-                                    <td class="col-md-2 remove-padding-left">
-                                        <button type="button" class="btn btn-success form-control" onclick="incluirBeneficiario()">Incluir</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table class="table" id="tableBeneficiarios">
+</form>
+<div>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Beneficiários
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="mb-3" aria-hidden="true">&times;</span>
+                        </button>
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tbody>
                             <tr>
-                                <th scope="col">CPF</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Ações</th>
+                                <th scope="col">CPF:</th>
+                                <th scope="col">Nome:</th>
+                                <th scope="col"></th>
                             </tr>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                            <tr>
+                                <td class="col-md-2 remove-padding-left">
+                                    <input type="text" class="form-control" id="CpfBeneficiario" name="CpfBeneficiario" oninput="maskCpf(this)" placeholder="Ex.: 010.011.111-00" maxlength="11">
+                                </td>
+                                <td class="col-md-3 remove-padding-left">
+                                    <input type="text" class="form-control" id="NomeBeneficiario" name="NomeBeneficiario" placeholder="Ex.: Maria" maxlength="50">
+                                </td>
+                                <td class="col-md-2 remove-padding-left">
+                                    <button type="button" class="btn btn-success form-control" onclick="incluirBeneficiario()">Incluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table" id="tableBeneficiarios">
+                        <tr>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</form>
+</div>
+
 <style>
     .remove-padding-left {
         padding-left: 0 !important;
@@ -153,7 +154,7 @@
 
         var v = i.value;
 
-        if (isNaN(v[v.length - 1])) { 
+        if (isNaN(v[v.length - 1])) {
             i.value = v.substring(0, v.length - 1);
             return;
         }

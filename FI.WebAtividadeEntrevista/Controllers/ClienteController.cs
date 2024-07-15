@@ -59,7 +59,11 @@ namespace WebAtividadeEntrevista.Controllers
                     Sobrenome = model.Sobrenome,
                     Telefone = model.Telefone,
                     Cpf = model.Cpf,
-                    Beneficiarios = model.Beneficiarios
+                    Beneficiarios = (model.Beneficiarios ?? new List<Beneficiario>()).Select(b => new Beneficiario
+                    {
+                        Cpf = b.Cpf.Replace("-", "").Replace(".", ""),
+                        Nome = b.Nome
+                    }).ToList()
                 });
 
            
@@ -98,7 +102,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Cidade = model.Cidade,
                     Email = model.Email,
                     Estado = model.Estado,
-                    Logradouro = model.Logradouro,
+                    Logradouro = model.Logradouro, 
                     Nacionalidade = model.Nacionalidade,
                     Nome = model.Nome,
                     Sobrenome = model.Sobrenome,
