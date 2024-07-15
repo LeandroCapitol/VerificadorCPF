@@ -85,7 +85,7 @@ namespace WebAtividadeEntrevista.Controllers
             {
                 model.Cpf = model.Cpf.Replace("-", "").Replace(".", "");
 
-                if (bo.ValidadorCpf(model.Cpf) is false || bo.VerificarExistencia(model.Cpf) is true)
+                if (bo.ValidadorCpf(model.Cpf) is false || bo.VerificarExistencia(model.Cpf) is true && model.Cpf != model.Cpf)
                 {
                     Response.StatusCode = 400;
                     return Json("Insira um CPF Válido ou não cadastrado");
