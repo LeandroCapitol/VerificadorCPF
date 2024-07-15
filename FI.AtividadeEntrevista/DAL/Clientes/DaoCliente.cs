@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 
 namespace FI.AtividadeEntrevista.DAL
 {
@@ -16,18 +17,20 @@ namespace FI.AtividadeEntrevista.DAL
         /// <param name="cliente">Objeto de cliente</param>
         internal long Incluir(DML.Cliente cliente)
         {
+            cliente.Cpf = cliente.Cpf.Replace("-", "").Replace(".", "");
+
             List<System.Data.SqlClient.SqlParameter> parametros = new List<System.Data.SqlClient.SqlParameter>();
 
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Nome", cliente.Nome));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Sobrenome", cliente.Sobrenome));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Nacionalidade", cliente.Nacionalidade));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("CEP", cliente.CEP));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Estado", cliente.Estado));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Cidade", cliente.Cidade));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Logradouro", cliente.Logradouro));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Email", cliente.Email));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Telefone", cliente.Telefone));
-            parametros.Add(new System.Data.SqlClient.SqlParameter("Cpf", cliente.Cpf));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Nome", cliente.Nome));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Sobrenome", cliente.Sobrenome));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Nacionalidade", cliente.Nacionalidade));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@CEP", cliente.CEP));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Estado", cliente.Estado));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Cidade", cliente.Cidade));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Logradouro", cliente.Logradouro));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Email", cliente.Email));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Telefone", cliente.Telefone));
+            parametros.Add(new System.Data.SqlClient.SqlParameter("@Cpf", cliente.Cpf));
 
             DataSet ds = base.Consultar("FI_SP_IncClienteV2", parametros);
             long ret = 0;

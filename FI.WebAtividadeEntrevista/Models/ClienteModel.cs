@@ -66,10 +66,13 @@ namespace WebAtividadeEntrevista.Models
         /// Telefone
         /// </summary>
         public string Telefone { get; set; }
-        
+
         /// <summary>
         /// Cpf
         /// </summary>
+        [Required]
+        [RegularExpression(@"^[0-9.\-]*$", ErrorMessage = "Digite um CPF válido")]
+        [StringLength(14, MinimumLength = 11, ErrorMessage = "O CPF deve ter exatamente 11 caracteres")]
         public string Cpf { get; set; }
 
     }    
