@@ -10,7 +10,9 @@ $(document).ready(function () {
         $('#formCadastro #Cidade').val(obj.Cidade);
         $('#formCadastro #Logradouro').val(obj.Logradouro);
         $('#formCadastro #Telefone').val(obj.Telefone);
-        $('#Cpf #Cpf').val(obj.Cpf);
+        $('#formCadastro #Cpf').val(obj.Cpf);
+        $('#formCadastro #CpfBeneficiario').val(obj.CpfBeneficiario);
+        $('#formCadastro #NomeBeneficiario').val(obj.NomeBeneficiario);
     }
 
     $('#formCadastro').submit(function (e) {
@@ -29,7 +31,9 @@ $(document).ready(function () {
                 "Cidade": $(this).find("#Cidade").val(),
                 "Logradouro": $(this).find("#Logradouro").val(),
                 "Telefone": $(this).find("#Telefone").val(),
-                "Cpf": $(this).find("#Cpf").val()
+                "Cpf": $(this).find("#Cpf").val(),
+                "CpfBeneficiario": $(this).find("#CpfBeneficiario").val(),
+                "NomeBeneficiario": $(this).find("#NomeBeneficiario").val(),
             },
             error:
             function (r) {
@@ -46,7 +50,7 @@ $(document).ready(function () {
             }
         });
     })
-    
+
 })
 
 function ModalDialog(titulo, texto) {

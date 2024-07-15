@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,16 @@ namespace FI.AtividadeEntrevista.BLL
         {
             DAL.DaoCliente cli = new DAL.DaoCliente();
             cli.Alterar(cliente);
+        }
+
+        /// <summary>
+        /// Altera um beneficiario
+        /// </summary>
+        /// <param name="beneficiario">Objeto de beneficiario</param>
+        public void AlterarBeneficiario(DML.Beneficiario beneficiario)
+        {
+            DAL.DaoCliente cli = new DAL.DaoCliente();
+            cli.AlterarBeneficiario(beneficiario);
         }
 
         /// <summary>
@@ -78,5 +89,13 @@ namespace FI.AtividadeEntrevista.BLL
             DAL.DaoCliente cli = new DAL.DaoCliente();
             return cli.VerificarExistencia(CPF);
         }
+        public bool ValidadorCpf(string Cpf)
+        {
+            int cpf = Cpf.Where(char.IsDigit).Sum(c => c - '0');
+            if (cpf != 33 && cpf != 44 && cpf != 55 && cpf != 66)
+                return false;
+            else
+                return true;
     }
+}
 }

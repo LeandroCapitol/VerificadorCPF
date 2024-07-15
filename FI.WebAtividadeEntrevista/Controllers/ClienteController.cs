@@ -25,8 +25,16 @@ namespace WebAtividadeEntrevista.Controllers
         [HttpPost]
         public JsonResult Incluir(ClienteModel model)
         {
+            model.Cpf = model.Cpf.Replace("-", "").Replace(".", "");
+
             BoCliente bo = new BoCliente();
-            
+
+            if (bo.ValidadorCpf(model.Cpf) is false || bo.VerificarExistencia(model.Cpf) is true)
+            {
+                Response.StatusCode = 400;
+                return Json("Insira um CPF Válido ou não cadastrado");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 List<string> erros = (from item in ModelState.Values
@@ -50,7 +58,8 @@ namespace WebAtividadeEntrevista.Controllers
                     Nome = model.Nome,
                     Sobrenome = model.Sobrenome,
                     Telefone = model.Telefone,
-                    Cpf = model.Cpf
+                    Cpf = model.Cpf,
+                    Beneficiarios = model.Beneficiarios
                 });
 
            
@@ -74,6 +83,14 @@ namespace WebAtividadeEntrevista.Controllers
             }
             else
             {
+                model.Cpf = model.Cpf.Replace("-", "").Replace(".", "");
+
+                if (bo.ValidadorCpf(model.Cpf) is false || bo.VerificarExistencia(model.Cpf) is true)
+                {
+                    Response.StatusCode = 400;
+                    return Json("Insira um CPF Válido ou não cadastrado");
+                }
+
                 bo.Alterar(new Cliente()
                 {
                     Id = model.Id,
@@ -117,7 +134,7 @@ namespace WebAtividadeEntrevista.Controllers
                     Cpf = cliente.Cpf
                 };
 
-            
+                model.Cpf = string.IsNullOrEmpty(cliente.Cpf) ? null : cliente.Cpf.Replace("-", "").Replace(".", "").Insert(3, ".").Insert(7, ".").Insert(11, "-");
             }
 
             return View(model);
